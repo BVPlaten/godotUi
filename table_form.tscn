@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://crnx2fgtfnjh7"]
+
+[sub_resource type="SystemFont" id="SystemFont_ljv8q"]
+
+[node name="TableForm" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 72.0
+offset_right = 360.0
+offset_bottom = 248.0
+theme_override_fonts/font = SubResource("SystemFont_ljv8q")
+theme_override_font_sizes/font_size = 36
+text = "TableForm
+"

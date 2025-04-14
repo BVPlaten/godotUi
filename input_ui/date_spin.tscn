@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://07am1un2syxp"]
+
+[ext_resource type="Script" uid="uid://wye0vxao2dem" path="res://input_ui/date_spin.gd" id="1_8sgqb"]
+
+[node name="DateSpin" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_8sgqb")
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 266.0
+offset_bottom = 31.0
+
+[node name="DaySpin" type="SpinBox" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="MonthSpin" type="SpinBox" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="YearSpin" type="SpinBox" parent="HBoxContainer"]
+layout_mode = 2

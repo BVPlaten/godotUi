@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://u5ri28vmhp3"]
+
+[ext_resource type="Script" uid="uid://c16he224ij6tr" path="res://input_ui/text_input.gd" id="1_ww44w"]
+
+[node name="TextInput" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ww44w")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 128.0
+offset_bottom = 28.0
+text = "Label1"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 704.0
+offset_bottom = 40.0

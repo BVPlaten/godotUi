@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://waewi2003ygj"]
+
+[ext_resource type="Texture2D" uid="uid://630njgsfsoat" path="res://golftunier.webp" id="1_lb37m"]
+
+[node name="AboutForm" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("1_lb37m")
+expand_mode = 3
+stretch_mode = 4

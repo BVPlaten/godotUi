@@ -1,0 +1,12 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+*.import
+*.ctmp
+*.cfg
+export/
+build/
+.mono/
+*.csproj
+*.sln
+*.userprefs
