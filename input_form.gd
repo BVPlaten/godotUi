@@ -24,11 +24,11 @@ var event_datastruct = {
 	"Hotel Storno Bis" : 	{ "ui_type" : "text" },
 	"Hotel Bezahlt" : 		{ "ui_type" : "bool" }
 }
-var table_db_config = { "primary_key" : true , "not_null": true, "auto_incremet": true }
+var prim_key_conf = { "primary_key" : true , "not_null": true, "auto_incremet": true }
 
 # 
 func _ready() -> void:
-	self.db_mgr = DatabaseManager.new( event_datastruct, table_db_config, "event")
+	self.db_mgr = DatabaseManager.new( event_datastruct, prim_key_conf, "event")
 	self.ui_mgr = UiManager.new(event_datastruct)
 	_add_controls()
 	
@@ -37,8 +37,8 @@ func _ready() -> void:
 # behandelt das drücken des buttons
 func _add_controls():
 	for i in range(ui_mgr.widget_list.size()):
-		var widget = ui_mgr.widget_list[i].get_ui_type()
-		print("Index:", i, ", Element:", widget)
+		# var widget = ui_mgr.widget_list[i].get_ui_type()
+		# print("Index:", i, "   ---   Element:", widget)
 		add_child(ui_mgr.widget_list[i])
 
 

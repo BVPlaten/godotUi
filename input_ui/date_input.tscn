@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://x3gtdepg87sn"]
 
-[ext_resource type="Script" uid="uid://ccmfrn6kehyjd" path="res://input_ui/date_input.gd" id="1_q7h14"]
-[ext_resource type="PackedScene" uid="uid://07am1un2syxp" path="res://input_ui/date_spin.tscn" id="1_w4c2x"]
+[ext_resource type="Script" uid="uid://ccmfrn6kehyjd" path="res://input_ui/date_input.gd" id="1_nj05d"]
+[ext_resource type="PackedScene" uid="uid://07am1un2syxp" path="res://input_ui/date_spin.tscn" id="2_c6dam"]
 
 [node name="DateInput" type="Control"]
 clip_contents = true
@@ -9,7 +9,7 @@ layout_mode = 3
 anchor_right = 0.576
 anchor_bottom = 0.032
 offset_right = -6.10352e-05
-script = ExtResource("1_q7h14")
+script = ExtResource("1_nj05d")
 metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="."]
@@ -21,6 +21,6 @@ theme_override_font_sizes/font_size = 16
 text = "Datum
 "
 
-[node name="DateSpin" parent="." instance=ExtResource("1_w4c2x")]
+[node name="DateSpin" parent="." instance=ExtResource("2_c6dam")]
 offset_left = 256.0
 offset_right = 296.0

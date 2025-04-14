@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://waewi2003ygj"]
 
-[ext_resource type="Texture2D" uid="uid://630njgsfsoat" path="res://golftunier.webp" id="1_lb37m"]
+[ext_resource type="Texture2D" uid="uid://630njgsfsoat" path="res://image/golftunier.webp" id="1_lb37m"]
 
 [node name="AboutForm" type="Node2D"]
 

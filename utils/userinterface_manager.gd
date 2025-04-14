@@ -1,22 +1,17 @@
 #  UiManager : generates the user interface from a configuration dictionary
-#              it is responsible for genreating the ui ,getting data and updating
-#              the widgets in the ui
-#
-#
 extends RefCounted
 class_name UiManager
 
-var text_input = preload("res://input_ui/text_input.tscn")
-var date_input = preload("res://input_ui/date_input.tscn")
-var check_input = preload("res://input_ui/check_input.tscn")
+var widget_list = []											# container for the ui-controls that are created by self
+var table_config : Dictionary									# configuration data 
+var text_input = preload("res://input_ui/text_input.tscn")		# input control for text
+var date_input = preload("res://input_ui/date_input.tscn")		# input control for date
+var check_input = preload("res://input_ui/check_input.tscn")	# input control for radiobutton
 
-var widget_list = []
-var table_config : Dictionary
 
 func _init( table_cnfg: Dictionary = {} ):
 	self.table_config = table_cnfg
 	_create_by_config()
-	_update_ui()
 
 
 # create the UI by the configuration dictionary
@@ -49,7 +44,3 @@ func _create_control(widget_type, widget_text):
 			return null
 	widget.lable_text = widget_text
 	return widget
-
-func _update_ui():
-	for widget in widget_list:
-		pass
