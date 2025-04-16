@@ -1,9 +1,3 @@
-# database_manager.gd
-## DatabaseManager : class for working with SQLite
-## Diese Klasse ist von RefCounted abgeleitet, sodass sie nicht zur Szene hinzugefügt werden muss
-## und automatisch vom Speicher verwaltet wird, wenn keine Referenzen mehr darauf bestehen.
-
-
 extends RefCounted
 ## DatabaseManager : class for using SQLite
 ## https://www.youtube.com/watch?v=j-BRiTrw_F0

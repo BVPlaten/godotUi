@@ -3,12 +3,13 @@ extends Control
 @export var widget_type = "textInput"
 var lable_text = "n.a."
 var edit_text = "n.a."
+@export var inputResult : String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$TextEdit.focus_mode = Control.FOCUS_ALL
+	$LineEdit.focus_mode = Control.FOCUS_ALL
 	$Label.text = lable_text
-	$TextEdit.text = edit_text
+	$LineEdit.text = edit_text
 
 func get_ui_type():
 	return widget_type + " ; " + lable_text
@@ -26,3 +27,8 @@ func _input(event):
 		print("prev focus")
 		#get_parent().get_parent().get_node('line2/rarity/rarity').grab_focus()
 		#get_tree().set_input_as_handled()
+
+## read the users input
+func get_input():
+	self.inputResult = $LineEdit.text 
+	

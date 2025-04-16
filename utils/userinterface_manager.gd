@@ -1,5 +1,6 @@
-#  UiManager : generates the user interface from a configuration dictionary
 extends RefCounted
+## UiManager : generates the user interface from a configuration dictionary
+
 class_name UiManager
 
 var widget_list = []											# container for the ui-controls that are created by self

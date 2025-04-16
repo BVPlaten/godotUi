@@ -36,14 +36,20 @@ func _ready() -> void:
 
 # behandelt das drücken des buttons
 func _add_controls():
-	for i in range(ui_mgr.widget_list.size()):
-		# var widget = ui_mgr.widget_list[i].get_ui_type()
-		# print("Index:", i, "   ---   Element:", widget)
-		add_child(ui_mgr.widget_list[i])
+	for widget in ui_mgr.widget_list:
+		add_child(widget)
+	#for i in range(ui_mgr.widget_list.size()):
+		## var widget = ui_mgr.widget_list[i].get_ui_type()
+		## print("Index:", i, "   ---   Element:", widget)
+		#add_child(ui_mgr.widget_list[i])
 
+func get_input():
+	for widget in ui_mgr.widget_list:
+		widget.get_input()
+		print ("Widget   - " + str(widget.lable_text) + " : " + str(widget.inputResult) )
 
 func _on_save_pressed() -> void:
-	print("save pressed")
+	get_input()
 	
 # new dataset
 func _on_new_pressed() -> void:
