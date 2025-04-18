@@ -30,3 +30,13 @@ func get_input():
 		self.inputResult = "true"
 	else:
 		self.inputResult = "false"
+		
+## set the controls value by script
+func set_input(val :String):
+	if val == "true":
+		self.inputResult = "true"
+		$CheckBox.button_pressed = true
+	else:
+		self.inputResult = "false"
+		$CheckBox.button_pressed = false
+		

@@ -32,3 +32,7 @@ func _input(event):
 func get_input():
 	self.inputResult = $LineEdit.text 
 	
+func set_input(newVal : String):
+	self.inputResult = newVal
+	$LineEdit.text = newVal
+	

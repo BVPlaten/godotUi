@@ -20,3 +20,7 @@ func _process(delta: float) -> void:
 func get_input():
 	$DateSpin.get_input()
 	self.inputResult = $DateSpin.inputResult
+
+func set_input(newDate: String):
+	$DateSpin.set_input(newDate)
+	self.inputResult = newDate

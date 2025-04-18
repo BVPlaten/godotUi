@@ -12,17 +12,16 @@ class_name DatabaseManager
 var db_path: String = "res://data.db" 	## path to the sqlite datebase file (z.B. "user://my_database.db").
 var db: SQLite 							## sqlite instance
 var table_name : String					## table name
-var prim_key_cfg : Dictionary 			## configuration of the primary key
 var table_config : Dictionary			## table structure
 
 
 ## constructor of the SQLite manager class
-func _init( table_cnfg: Dictionary = {}, prim_key_conf : Dictionary = {}, table_nm: String = "not_given" ):
+func _init( table_cnfg: Dictionary = {}, table_nm: String = "not_given" ):
 	self.table_config = table_cnfg
-	self.prim_key_cfg = prim_key_conf
 	self.table_name = table_nm
 	db = SQLite.new()
 	db_connect()
+	change_dict_keys()
 
 
 ## connect to the database-file set in db_path
@@ -52,12 +51,23 @@ func db_disconnect():
 
 
 ## create table with the primary key defined in conmstructor parameter prim_key_conf
-func db_create_table(tble_name) -> void:
+func db_create_table(tble_name : String, tbl_recreate : bool) -> void:
 	db.query_with_bindings("SELECT name FROM sqlite_master WHERE type='table' AND name=?;", [tble_name])
 	if not db.query_result.is_empty():
-		db.drop_table(tble_name)
-	db.create_table(tble_name, change_dict_keys(table_config))
-	print("db_create_table(): table created")
+		if tbl_recreate:
+			return
+		else:
+			db.drop_table(tble_name)
+	#db.create_table(tble_name, change_dict_keys(table_config))
+	
+
+func change_dict_keys():
+	for key in self.table_config:
+		var value = self.table_config[key]["data_type"]
+		if value is Dictionary:
+			print("Der Wert unter dem Schlüssel '%s' ist ein Dictionary : '%s'" % [key, value])
+		else:
+			print("Der Wert unter dem Schlüssel '%s' ist KEIN Dictionary : '%s'" % [key, value])
 
 
 ## get a value from the table config by its key
@@ -71,24 +81,3 @@ func get_config(key_of_interest : String):
 		else:
 			printerr("Key '" + str(key_of_interest) + "' does not exist in the table dictionary ")
 	return result
-
-
-## the function generates the column names for the table from the ui-configuration
-func create_string_for_tablename(ui_name: String) -> String:
-	var umlaut_mapping = { "ä": "ae","ö": "oe","ü": "ue","Ä": "Ae","Ö": "Oe","Ü": "Ue" }
-	var destination_name = ui_name
-	for umlaut in umlaut_mapping.keys():
-		var ersetzung = umlaut_mapping[umlaut]
-		destination_name = destination_name.replace(umlaut, ersetzung)
-	var lowercase = destination_name.to_lower()
-	var result = lowercase.replace(" ", "_")
-	return result
-
-
-## transform the lable strings from the ui to useable column names for the database
-func change_dict_keys(source: Dictionary) -> Dictionary:
-	var destination = {}
-	for source_key in source.keys():
-		var column_name = create_string_for_tablename(source_key)
-		destination[column_name] = source[source_key]
-	return destination

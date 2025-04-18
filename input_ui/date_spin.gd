@@ -57,3 +57,9 @@ func _is_leap_year(year: int) -> bool:
 ## read the users input
 func get_input():
 	self.inputResult = "%04d-%02d-%02d" % [int(year_box.value), int(month_box.value), int(day_box.value)]
+
+
+func set_input(newDate : String):
+	day_box.value = 27
+	month_box.value = 7
+	year_box.value = 1970
